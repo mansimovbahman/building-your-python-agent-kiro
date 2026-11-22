@@ -1,4 +1,4 @@
-# TODO: ensure your GitHub MCP configuration file (which holds your personal
-# access token) is listed here so it is never committed. In Kiro this is
-# .kiro/settings/mcp.json (workspace) or ~/.kiro/settings/mcp.json (user).
-[PLACEHOLDER]
+# GitHub MCP configuration. The config references ${GITHUB_TOKEN} from the
+# environment, but it stays ignored as a safeguard in case a token is ever
+# pasted into it directly.
+.kiro/settings/mcp.json
