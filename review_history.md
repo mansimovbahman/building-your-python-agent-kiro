@@ -6,4 +6,6 @@ TODO: episodic memory log. After every completed review, append one line:
 Example: 2026-05-15 | PR-03 | Hardcoded API token in PaymentService | HIGH
 -->
 
-[PLACEHOLDER]
+2026-11-23 | PR-02 | Mutable default argument and missing type hints in ProfileService.FetchProfile | MEDIUM
+2026-11-23 | PR-03 | Hardcoded live API key in PaymentService | HIGH
+2026-11-23 | PR-01 | No findings | NONE

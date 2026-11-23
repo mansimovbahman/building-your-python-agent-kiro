@@ -41,10 +41,15 @@ their results, and run the publish gate. Only you talk to the user and only you 
    - End with `## Summary`: files reviewed, total findings with HIGH/MEDIUM/LOW counts, and
      the verdict.
    Do not add findings the subagents did not return, and do not drop any they did return.
-4. **Present the review.** Show the full consolidated review to the user, then ask exactly:
+4. **Log the review.** Append one line to `review_history.md` in the format from the
+   episodic memory rule in `AGENTS.md`, for example
+   `2026-05-15 | PR-03 | Hardcoded API token in PaymentService | HIGH`. Use the
+   highest-severity finding, or `No findings | NONE` for a clean PR. Do this before step 5,
+   so the run is logged whatever the user answers.
+5. **Present the review.** Show the full consolidated review to the user, then ask exactly:
    "Do you want me to post this comment to PR #<number>? Reply `yes` to confirm."
    Stop and wait for the reply.
-5. **Post only on `yes` or `post`.**
+6. **Post only on `yes` or `post`.**
    - If the reply is `yes` or `post`: state that you are about to post the review as a
      comment on PR #<number> in `nebius-academy-templates/python-pr-review-practice`, then post
      it with `pull_request_review_write` using event `COMMENT`. Never use `APPROVE` or

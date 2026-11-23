@@ -102,3 +102,14 @@ Always use exactly this Markdown structure:
 - Report only findings supported by the diff or code you actually read. Never invent issues,
   line numbers, files, or rules.
 - If the diff is empty or cannot be loaded, stop and say so instead of producing a review.
+- **Episodic memory log:** after every completed review (whether or not the user confirms
+  posting), append one line to `review_history.md` in the project root:
+  `YYYY-MM-DD | PR-[number] | [top finding short description] | [severity]`
+  Example: `2026-05-15 | PR-03 | Hardcoded API token in PaymentService | HIGH`
+  - Use today's date, the PR number as two digits (`PR-01`), the highest-severity finding,
+    and its severity (`HIGH`, `MEDIUM`, or `LOW`). For a review with no findings, write
+    `No findings` and `NONE`.
+  - Write the line before asking whether to post, so it is logged even if the user says no.
+  - Append only: never edit or delete existing lines. This file is the one exception to the
+    read-only rule above.
+  - When asked about past reviews, answer from `review_history.md`, not from memory.

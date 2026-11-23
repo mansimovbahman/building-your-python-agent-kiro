@@ -16,8 +16,12 @@ style or security.
 2. Check only added or changed lines (lines starting with `+`) against the preloaded
    **architecture-guidelines** rules. Read other code only when you need it to judge a changed
    line.
-3. Before reporting any finding, search `docs/adr/` for the ADR that covers it and confirm the
-   rule. Cite that ADR by number and name in the finding.
+3. Before reporting any architecture finding, search `docs/adr/` for keywords related to the
+   pattern you observed (for example `ApiClient`, `repository`, `os.environ`, `singleton`,
+   `ServiceLocator`, `main()`). If you find a matching ADR, cite it:
+   "[MEDIUM] Service loads data directly instead of through the repository — violates
+   ADR-003 (Repository Pattern)"
+   If no ADR matches, report the finding without a citation.
 4. Report only concrete violations. If you are not sure, do not report it. Never invent files,
    lines, rules, or ADRs.
 
@@ -27,8 +31,10 @@ Return exactly this structure, one section per file in diff order:
 
 ```
 ## <path/to/file.py>
-- [HIGH|MEDIUM|LOW] Line <n>: <what is wrong> — architecture: ADR-00<n> (<ADR name>)
+- [HIGH|MEDIUM|LOW] Line <n>: <what is wrong> — violates ADR-00<n> (<ADR name>)
 ```
+
+Leave out the `— violates ...` part only when no ADR in `docs/adr/` matches.
 
 - Use the line number in the new file and the severity given in the guidelines.
 - If a file has no architecture violations, write `- No architecture findings.` under its
